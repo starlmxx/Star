@@ -1,0 +1,2 @@
+/Users/star/Library/Developer/Xcode/DerivedData/Star-dkbpymktrfgtbvhfzuskfqyxjrch/Build/Products/Debug-iphonesimulator/Star.app
+iPhone Developer: mingxing li (W9M5TQGBE5)
