@@ -159,12 +159,6 @@ static CGFloat toolBarMinHeight = 44;
 - (void)getResponseFromTuling:(NSString *)msg
 {
     NSDictionary *parameterDict = @{@"key":TULING_API_KEY, @"info":msg, @"userid":TULING_USER_ID};
-    //NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameterDict
-    //                                                   options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-    //                                                     error:nil];
-    //NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    //NSString *parameters = [NSString stringWithFormat:@"key=%@&info=%@&userid=%@", TULING_API_KEY, @"你是谁", TULING_USER_ID];
     
     NSURL *URL = [NSURL URLWithString:TULING_API_URL];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -186,22 +180,6 @@ static CGFloat toolBarMinHeight = 44;
         //
         NSLog(@"Error: %@", error);
     }];
-    
-    
-    [self testDispatchGroup];
-}
-
-- (void)testDispatchGroup
-{
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_group_t group = dispatch_group_create();
-    
-    dispatch_group_async(group, queue, ^{NSLog(@"block 0 ****");});
-    dispatch_group_async(group, queue, ^{NSLog(@"block 1 ****");});
-    dispatch_group_async(group, queue, ^{NSLog(@"block 2 ****");});
-    
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{NSLog(@"block done ======");});
-    
 }
 
 #pragma mark - UITextViewDelegate
